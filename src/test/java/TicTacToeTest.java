@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: Get empty grid
  * [x]ToTest: show player one first stone
  * [x]ToTest: show player two first stone
- * []ToTest: show player one second stone
+ * [x]ToTest: show player one second stone
  * []ToTest: show player two second stone
  * []ToTest: Play one wins in row
  * []ToTest: player one wins in column
@@ -38,7 +38,7 @@ public class TicTacToeTest {
 
     @Test
     public void getGrid_forPlayOneSetFirstStone() {
-        setPlayerOne();
+        setPlayerOne(0);
         final String currentGrid  = getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x        "));
@@ -46,19 +46,29 @@ public class TicTacToeTest {
 
     @Test
     public void getGrid_forPlayOneAndTwoSetFirstStone() {
-        setPlayerOne();
+        setPlayerOne(0);
         setPlayerTwo();
         final String currentGrid  = getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x  o     "));
     }
 
+    @Test
+    public void getGrid_forPlayOneSetSecondStone() {
+        setPlayerOne(0);
+        setPlayerTwo();
+        setPlayerOne(1);
+        final String currentGrid  = getGrid();
+        System.out.println(currentGrid);
+        assertThat(currentGrid, is("xx o     "));
+    }
+
     private void setPlayerTwo() {
         grid[3] = 'o';
     }
 
-    private void setPlayerOne() {
-        grid[0] = 'x';
+    private void setPlayerOne(final int stoneNumber) {
+        grid[stoneNumber] = 'x';
     }
 
     private String getGrid() {
