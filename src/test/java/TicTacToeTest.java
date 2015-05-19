@@ -8,14 +8,20 @@ import static org.junit.Assert.assertThat;
  *
  * @author lumiha
  * @since 19/05/15.
-
- []ToTest: show first stone
- []ToTest: show opponent stone
-
+ * <p>
+ * []ToTest: show first stone
+ * []ToTest: show opponent stone
+ * []ToTest: Play one wins in row
+ * []ToTest: player one wins in column
+ * []ToTest: play one wins in diagonal
+ * []ToTest: play two wins
+ * []ToTest: match
+ * []ToTest: layout field
+ * []ToTest:
  */
 public class TicTacToeTest {
     @Test
     public void testEnvFunctioning() {
-        assertThat("A", is("A") );
+        assertThat("A", is("A"));
     }
 }
