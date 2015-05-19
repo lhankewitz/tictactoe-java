@@ -4,6 +4,7 @@ public class TicTacToe {
     static final char PLAYER_ONE = 'x';
     private static final char MATCH = '~';
     private Grid grid = new Grid();
+    private char lastPlayer = PLAYER_TWO;
 
     public TicTacToe() {}
 
@@ -12,10 +13,14 @@ public class TicTacToe {
     }
 
     public void setPlayerOne(final int stoneNumber){
+        if(lastPlayer == PLAYER_ONE) throw new RuntimeException("Next Players turn!");
+        lastPlayer = PLAYER_ONE;
         grid.setPlayer(stoneNumber, PLAYER_ONE);
     }
 
     public void setPlayerTwo(final int stoneNumber){
+        if(lastPlayer == PLAYER_TWO) throw new RuntimeException("Next Players turn!");
+        lastPlayer = PLAYER_TWO;
         grid.setPlayer(stoneNumber, PLAYER_TWO);
     }
 

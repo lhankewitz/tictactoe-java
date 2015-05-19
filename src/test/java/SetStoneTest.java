@@ -26,8 +26,8 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: Play two wins in diagonal top right to bottom left
  * [x]ToTest: match means no winner
  * [x]ToTest: no change of setting on a field where is already a stone
- * []ToTest: not yet finished game
  * []ToTest: no two successive set of stones for one player
+ * []ToTest: not yet finished game
  * []ToTest: reset game
  * []ToTest: layout field
  *
