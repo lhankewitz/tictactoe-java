@@ -25,7 +25,7 @@ import static org.junit.Assert.assertThat;
  * 345
  * 678
  */
-public class TicTacToeTest{
+public class SetStoneTest {
 
     private final TicTacToe ticTacToe = new TicTacToe();
 
