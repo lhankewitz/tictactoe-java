@@ -34,7 +34,7 @@ import static org.junit.Assert.assertThat;
  */
 public class SetStoneTest {
 
-    private final TicTacToe ticTacToe = new TicTacToe();
+    private final TicTacToe ticTacToe = new TicTacToe(new Grid());
 
     @Test
     public void getGrid_BeforeGame() {

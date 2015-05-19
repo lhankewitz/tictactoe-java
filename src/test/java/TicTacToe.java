@@ -5,7 +5,7 @@ public class TicTacToe {
 
     private char[] grid = "         ".toCharArray();
 
-    public TicTacToe() {
+    public TicTacToe(final Grid grid) {
     }
 
     public void setPlayer(final int stoneNumber, final char player) {

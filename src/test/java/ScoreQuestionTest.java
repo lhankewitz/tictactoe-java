@@ -12,80 +12,110 @@ import static org.junit.Assert.assertThat;
 public class ScoreQuestionTest {
 
 
-    private final TicTacToe ticTacToe = new TicTacToe();
+    private final Grid grid = new Grid();
+    private final TicTacToe ticTacToe = new TicTacToe(grid);
 
     @Test
     public void getWinner_forPlayOneInFirstRowWinner_returnsPlayerOne() {
-        final char result = ticTacToe.getWinner("xxxoo    ");
+        final String gridValue = "xxxoo    ";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInSecondRowWinner_returnsPlayerOne() {
         //                             012345678
-        final char result = ticTacToe.getWinner("oo xxx   ");
+        final String gridValue = "oo xxx   ";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInThirdRowWinner_returnsPlayerOne() {
         //                             012345678
-        final char result = ticTacToe.getWinner("oo    xxx");
+        final String gridValue = "oo    xxx";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInFistColumnWinner_returnsPlayerOne() {
-        final char result = ticTacToe.getWinner("xo xo x  ");
+        final String gridValue = "xo xo x  ";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInSecondColumnWinner_returnsPlayerOne() {
-        final char result = ticTacToe.getWinner("ox ox  x ");
+        final String gridValue = "ox ox  x ";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInThirdColumnWinner_returnsPlayerOne() {
-        final char result = ticTacToe.getWinner("o xo x  x");
+        final String gridValue = "o xo x  x";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInTopLeft2BottomRightWinner_returnsPlayerOne() {
-        final char result = ticTacToe.getWinner("xo ox   x");
+        final String gridValue = "xo ox   x";
+        grid.setGrid(gridValue);
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInTopRight2BottomLeftWinner_returnsPlayerOne() {
-        final char result = ticTacToe.getWinner(" oxox x  ");
+        final String gridValue = " oxox x  ";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayTwoInFirstRowWinner_returnsPlayerTwo() {
-        final char result = ticTacToe.getWinner("oooxx xx ");
+        final String gridValue = "oooxx xx ";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_TWO) );
     }
 
     @Test
     public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
-        final char result = ticTacToe.getWinner("xx ooox  ");
+        final String gridValue = "xx ooox  ";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_TWO) );
     }
 
     @Test
     public void getWinner_forPlayTwoInThirdRowWinner_returnsPlayerTwo() {
         //                             012345678
-        final char result = ticTacToe.getWinner("xx   xooo");
+        final String gridValue = "xx   xooo";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is(TicTacToe.PLAYER_TWO) );
     }
 
     @Test
     public void getWinner_forMatch_returnsMatch() {
-        final char result = ticTacToe.getWinner("oxxxxooox");
+        final String gridValue = "oxxxxooox";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner(gridValue);
         assertThat(result, is('~') );
     }
 
