@@ -49,4 +49,7 @@ public class TicTacToe {
                 || grid.matchTopRight2BottomLeft(player);
     }
 
+    public void reset() {
+        grid.reset();
+    }
 }

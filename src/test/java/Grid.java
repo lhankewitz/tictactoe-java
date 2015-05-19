@@ -55,4 +55,12 @@ public class Grid {
     public boolean isFull() {
         return !getGrid().contains(" ");
     }
+
+    public boolean isEmpty() {
+        return getGrid().trim().isEmpty();
+    }
+
+    public void reset() {
+        grid = "         ".toCharArray();
+    }
 }

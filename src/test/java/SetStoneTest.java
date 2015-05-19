@@ -27,8 +27,9 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: match means no winner
  * [x]ToTest: no change of setting on a field where is already a stone
  * [x]ToTest: no two successive set of stones for one player
- * []ToTest: not yet finished game
- * []ToTest: reset game
+ * [x]ToTest: not yet finished game
+ * [x]ToTest: reset game
+ * []ToTest: invalid stones throw exception
  * []ToTest: layout field
  *
  * 012
@@ -37,7 +38,8 @@ import static org.junit.Assert.assertThat;
  */
 public class SetStoneTest {
 
-    private final TicTacToe ticTacToe = new TicTacToe(new Grid());
+    private final Grid grid = new Grid();
+    private final TicTacToe ticTacToe = new TicTacToe(grid);
 
     @Test
     public void getGrid_BeforeGame() {
@@ -94,5 +96,12 @@ public class SetStoneTest {
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xxxoo    "));
+    }
+
+    @Test
+    public void reset_forFilledGame_clearsGame() {
+        ticTacToe.setPlayerOne(0);
+        ticTacToe.reset();
+        assertThat(grid.isEmpty(), is(true));
     }
 }
