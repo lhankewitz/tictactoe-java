@@ -84,7 +84,7 @@ public class ScoreQuestionTest {
              || matchMiddleColumn(s, 'x')
              || matchRightColumn(s, 'x')
              || matchTopRow(s, 'x')
-             || matchSecondRow(s, 'x')
+             || matchMiddleRow(s, 'x')
              || matchBottomRow(s, 'x')
              || matchTopLeft2BottomRight(s, 'x')
              || matchTopRight2BottomLeft(s, 'x')
@@ -93,35 +93,35 @@ public class ScoreQuestionTest {
         }  else return '~';
     }
 
-    private boolean matchTopRight2BottomLeft(final String grid, final char player) {
-        return grid.matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
+    private boolean matchTopRow(final String grid, final char player) {
+        return grid.matches("p{3}.{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchTopLeft2BottomRight(final String grid, final char player) {
-        return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
+    private boolean matchMiddleRow(final String grid, final char player) {
+        return grid.matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
     private boolean matchBottomRow(final String grid, final char player) {
         return grid.matches(".{3}.{3}p{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchSecondRow(final String grid, final char player) {
-        return grid.matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchTopRow(final String grid, final char player) {
-        return grid.matches("p{3}.{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchRightColumn(final String grid, final char player) {
-        return grid.matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
+    private boolean matchLeftColumn(final String grid, final char player) {
+        return grid.matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
     private boolean matchMiddleColumn(final String grid, final char player) {
         return grid.matches(".p.{2}p.{2}p.".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchLeftColumn(final String grid, final char player) {
-        return grid.matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
+    private boolean matchRightColumn(final String grid, final char player) {
+        return grid.matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    private boolean matchTopRight2BottomLeft(final String grid, final char player) {
+        return grid.matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    private boolean matchTopLeft2BottomRight(final String grid, final char player) {
+        return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
     }
 }
