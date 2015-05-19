@@ -14,9 +14,12 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: show player two first stone
  * [x]ToTest: show player one second stone
  * [x]ToTest: show player two second stone
- * []ToTest: Play one wins in row
+ * [x]ToTest: Play one wins in first row
+ * [x]ToTest: Play two wins in second row
  * []ToTest: player one wins in column
- * []ToTest: play one wins in diagonal
+ * []ToTest: player two wins in column
+ * []ToTest: play one wins in diagonal top left to bottom right
+ * []ToTest: play one wins in diagonal top right to bottom left
  * []ToTest: match
  * []ToTest: layout field
  * []ToTest: who did win?
