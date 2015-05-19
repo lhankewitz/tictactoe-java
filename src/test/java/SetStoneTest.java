@@ -15,15 +15,18 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: show player one second stone
  * [x]ToTest: show player two second stone
  * [x]ToTest: Play one wins in first row
- * [x]ToTest: Play two wins in second row
+ * [x]ToTest: Play one wins in second row
+ * []ToTest: Play one wins in third row
  * [x]ToTest: player one wins in first column
- * []ToTest: match means no winner
  * []ToTest: player one wins in second column
- * []ToTest: player two wins in column
+ * []ToTest: player one wins in third column
  * []ToTest: play one wins in diagonal top left to bottom right
  * []ToTest: play one wins in diagonal top right to bottom left
+ * [x]ToTest: Play two wins in second row
+ * []ToTest: Play two wins in diagonal top right to bottom left
+ * [x]ToTest: match means no winner
  * []ToTest: layout field
- * []ToTest: who did win?
+ * []ToTest: who did win tests?
  *
  * 012
  * 345
