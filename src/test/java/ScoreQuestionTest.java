@@ -89,7 +89,7 @@ public class ScoreQuestionTest {
     }
 
     private boolean matchBottomRow(final String s) {
-        return s.matches(".{3}.{3}xxx");
+        return s.matches(".{3}.{3}x{3}");
     }
 
     private boolean matchSecondRow(final String s) {
