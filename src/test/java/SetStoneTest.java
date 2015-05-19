@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: show player two second stone
  * [x]ToTest: Play one wins in first row
  * [x]ToTest: Play one wins in second row
- * []ToTest: Play one wins in third row
+ * [x]ToTest: Play one wins in third row
  * [x]ToTest: player one wins in first column
  * []ToTest: player one wins in second column
  * []ToTest: player one wins in third column

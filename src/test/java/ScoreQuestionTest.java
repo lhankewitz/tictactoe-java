@@ -26,6 +26,13 @@ public class ScoreQuestionTest {
     }
 
     @Test
+    public void getWinner_forPlayOneInThirdRowWinner_returnsPlayerOne() {
+        //                             012345678
+        final char result = getWinner("oo    xxx");
+        assertThat(result, is('x') );
+    }
+
+    @Test
     public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
         final char result = getWinner("xx ooox  ");
         assertThat(result, is('o') );
@@ -50,6 +57,7 @@ public class ScoreQuestionTest {
                 s.matches("x.{2}x.{2}x.{2}")
              || s.matches("xxx.{3}.{3}")
              || s.matches(".{3}xxx.{3}")
+             || s.matches(".{3}.{3}xxx")
                 ){
             return 'x';
         } else return '~';
