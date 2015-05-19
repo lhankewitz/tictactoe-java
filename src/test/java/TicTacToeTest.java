@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -20,13 +22,13 @@ import static org.junit.Assert.assertThat;
  */
 public class TicTacToeTest {
 
-    private String grid = "      ";
+    private char[] grid = "         ".toCharArray();
 
     @Test
     public void getGrid_BeforeGame() {
         final String currentGrid = getGrid();
         System.out.println(currentGrid);
-        assertThat(currentGrid, is("      "));
+        assertThat(currentGrid, is("         "));
     }
 
     @Test
@@ -34,14 +36,27 @@ public class TicTacToeTest {
         setPlayerOne();
         final String currentGrid  = getGrid();
         System.out.println(currentGrid);
-        assertThat(currentGrid, is("x     "));
+        assertThat(currentGrid, is("x        "));
+    }
+
+    @Test
+    public void tictactoe_forPlayOneAndTwoSetFirstStone() {
+        setPlayerOne();
+        setPlayerTwo();
+        final String currentGrid  = getGrid();
+        System.out.println(currentGrid);
+        assertThat(currentGrid, is("x  o     "));
+    }
+
+    private void setPlayerTwo() {
+        grid[3] = 'o';
     }
 
     private void setPlayerOne() {
-        grid = "x     ";
+        grid[0] = 'x';
     }
 
     private String getGrid() {
-        return grid;
+        return String.valueOf(grid);
     }
 }
