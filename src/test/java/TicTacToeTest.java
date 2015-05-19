@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
  * @author lumiha
  * @since 19/05/15.
  * <p>
+ * []ToTest: Get empty grid
  * []ToTest: show first stone
  * []ToTest: show opponent stone
  * []ToTest: Play one wins in row
@@ -18,13 +19,27 @@ import static org.junit.Assert.assertThat;
  * []ToTest: layout field
  */
 public class TicTacToeTest {
+
+    private String grid = "";
+
+    @Test
+    public void getGrid_BeforeGame() {
+        final String currentGrid = getGrid();
+        assertThat(currentGrid, is(""));
+    }
+
     @Test
     public void tictactoe_forPlayOneSetFirstStone() {
-        final String currentRow = getGrid();
-        assertThat(currentRow, is("x"));
+        setPlayerOne();
+        final String currentGrid  = getGrid();
+        assertThat(currentGrid, is("x"));
+    }
+
+    private void setPlayerOne() {
+        grid = "x";
     }
 
     private String getGrid() {
-        return "x";
+        return grid;
     }
 }
