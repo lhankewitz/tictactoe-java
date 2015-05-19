@@ -111,6 +111,15 @@ public class ScoreQuestionTest {
     }
 
     @Test
+    public void getWinner_forPlayTwoInTopRight2BottomLeftWinner_returnsPlayerTwo() {
+        final String gridValue = "xxoxo o  ";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner();
+        assertThat(result, is(TicTacToe.PLAYER_TWO) );
+    }
+
+    @Test
     public void getWinner_forMatch_returnsMatch() {
         final String gridValue = "oxxxxooox";
         grid.setGrid(gridValue);

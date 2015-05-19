@@ -23,7 +23,7 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: play one wins in diagonal top left to bottom right
  * [x]ToTest: play one wins in diagonal top right to bottom left
  * [x]ToTest: Play two wins in second row
- * []ToTest: Play two wins in diagonal top right to bottom left
+ * [x]ToTest: Play two wins in diagonal top right to bottom left
  * [x]ToTest: match means no winner
  * []ToTest: layout field
  * []ToTest: who did win tests?
@@ -91,11 +91,5 @@ public class SetStoneTest {
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xxxoo    "));
-    }
-
-
-    @Test
-    public void testRegExGen() {
-        assertThat(String.format(".{2}%1$c.%1$c.%1$c.{2}", TicTacToe.PLAYER_ONE), is(".{2}x.x.x.{2}"));
     }
 }
