@@ -2,66 +2,42 @@ public class TicTacToe {
     static final char REG_EXP_PLAYER_CODE = 'p';
     static final char PLAYER_TWO = 'o';
     static final char PLAYER_ONE = 'x';
-    private final Grid grid2;
+    private static final char MATCH = '~';
+    private Grid grid = new Grid();
+
+    public TicTacToe() {}
 
     public TicTacToe(final Grid grid) {
-        grid2 = grid;
+        this.grid = grid;
     }
 
-    public void setPlayer(final int stoneNumber, final char player) {
-        grid2.setPlayer(stoneNumber, player);
+    public void setPlayerOne(final int stoneNumber){
+        grid.setPlayer(stoneNumber, PLAYER_ONE);
+    }
+
+    public void setPlayerTwo(final int stoneNumber){
+        grid.setPlayer(stoneNumber, PLAYER_TWO);
     }
 
     public String getGrid() {
-        return grid2.getGrid();
+        return grid.getGrid();
     }
 
-    public char getWinner(final String grid) {
-        if (isWinner(grid, PLAYER_TWO)) return PLAYER_TWO;
-        else if (isWinner(grid, PLAYER_ONE)) return PLAYER_ONE;
-        else return '~';
+    public char getWinner() {
+        if (isWinner(PLAYER_TWO)) return PLAYER_TWO;
+        else if (isWinner(PLAYER_ONE)) return PLAYER_ONE;
+        else return MATCH;
     }
 
-    private boolean isWinner(final String grid, final char player) {
-        return matchLeftColumn(grid, player)
-                || matchMiddleColumn(grid, player)
-                || matchRightColumn(grid, player)
-                || matchTopRow(grid, player)
-                || matchMiddleRow(grid, player)
-                || matchBottomRow(grid, player)
-                || matchTopLeft2BottomRight(grid, player)
-                || matchTopRight2BottomLeft(grid, player);
+    private boolean isWinner(final char player) {
+        return grid.matchLeftColumn(player)
+                || grid.matchMiddleColumn(player)
+                || grid.matchRightColumn(player)
+                || grid.matchTopRow(player)
+                || grid.matchMiddleRow(player)
+                || grid.matchBottomRow(player)
+                || grid.matchTopLeft2BottomRight(player)
+                || grid.matchTopRight2BottomLeft(player);
     }
 
-    boolean matchTopRow(final String grid, final char player) {
-        return grid.matches("p{3}.{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchMiddleRow(final String grid, final char player) {
-        return grid.matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchBottomRow(final String grid, final char player) {
-        return grid.matches(".{3}.{3}p{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchLeftColumn(final String grid, final char player) {
-        return grid.matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchMiddleColumn(final String grid, final char player) {
-        return grid.matches(".p.{2}p.{2}p.".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchRightColumn(final String grid, final char player) {
-        return grid.matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchTopRight2BottomLeft(final String grid, final char player) {
-        return grid.matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    boolean matchTopLeft2BottomRight(final String grid, final char player) {
-        return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
-    }
 }

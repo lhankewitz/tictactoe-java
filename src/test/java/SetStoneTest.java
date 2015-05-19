@@ -45,7 +45,7 @@ public class SetStoneTest {
 
     @Test
     public void getGrid_forPlayOneSetFirstStone() {
-        ticTacToe.setPlayer(0, 'x');
+        ticTacToe.setPlayerOne(0);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x        "));
@@ -53,8 +53,8 @@ public class SetStoneTest {
 
     @Test
     public void getGrid_forPlayOneAndTwoSetFirstStone() {
-        ticTacToe.setPlayer(0, 'x');
-        ticTacToe.setPlayer(3, 'o');
+        ticTacToe.setPlayerOne(0);
+        ticTacToe.setPlayerTwo(3);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x  o     "));
@@ -62,9 +62,9 @@ public class SetStoneTest {
 
     @Test
     public void getGrid_forPlayOneSetSecondStone() {
-        ticTacToe.setPlayer(0, 'x');
-        ticTacToe.setPlayer(3, 'o');
-        ticTacToe.setPlayer(1, 'x');
+        ticTacToe.setPlayerOne(0);
+        ticTacToe.setPlayerTwo(3);
+        ticTacToe.setPlayerOne(1);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xx o     "));
@@ -72,10 +72,10 @@ public class SetStoneTest {
 
     @Test
     public void getGrid_forPlayTwoSetSecondStone() {
-        ticTacToe.setPlayer(0, 'x');
-        ticTacToe.setPlayer(3, 'o');
-        ticTacToe.setPlayer(1, 'x');
-        ticTacToe.setPlayer(4, 'o');
+        ticTacToe.setPlayerOne(0);
+        ticTacToe.setPlayerTwo(3);
+        ticTacToe.setPlayerOne(1);
+        ticTacToe.setPlayerTwo(4);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xx oo    "));
@@ -83,11 +83,11 @@ public class SetStoneTest {
 
     @Test
     public void getGrid_forPlayOneWinsInRow() {
-        ticTacToe.setPlayer(0, 'x');
-        ticTacToe.setPlayer(3, 'o');
-        ticTacToe.setPlayer(1, 'x');
-        ticTacToe.setPlayer(4, 'o');
-        ticTacToe.setPlayer(2, 'x');
+        ticTacToe.setPlayerOne(0);
+        ticTacToe.setPlayerTwo(3);
+        ticTacToe.setPlayerOne(1);
+        ticTacToe.setPlayerTwo(4);
+        ticTacToe.setPlayerOne(2);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xxxoo    "));
@@ -96,6 +96,6 @@ public class SetStoneTest {
 
     @Test
     public void testRegExGen() {
-        assertThat(String.format(".{2}%1$c.%1$c.%1$c.{2}", 'x'), is(".{2}x.x.x.{2}"));
+        assertThat(String.format(".{2}%1$c.%1$c.%1$c.{2}", TicTacToe.PLAYER_ONE), is(".{2}x.x.x.{2}"));
     }
 }
