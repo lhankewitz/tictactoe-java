@@ -1,9 +1,19 @@
-public class ScoreChecker {
+public class TicTacToe {
     static final char REG_EXP_PLAYER_CODE = 'p';
     static final char PLAYER_TWO = 'o';
     static final char PLAYER_ONE = 'x';
 
-    public ScoreChecker() {
+    private char[] grid = "         ".toCharArray();
+
+    public TicTacToe() {
+    }
+
+    public void setPlayer(final int stoneNumber, final char player) {
+        grid[stoneNumber] = player;
+    }
+
+    public String getGrid() {
+        return String.valueOf(grid);
     }
 
     public char getWinner(final String grid) {
