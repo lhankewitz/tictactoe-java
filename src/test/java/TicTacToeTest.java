@@ -74,6 +74,18 @@ public class TicTacToeTest {
         assertThat(currentGrid, is("xx oo    "));
     }
 
+    @Test
+    public void getGrid_forPlayOneWinsInRow() {
+        setPlayerOne(0);
+        setPlayerTwo(3);
+        setPlayerOne(1);
+        setPlayerTwo(4);
+        setPlayerOne(2);
+        final String currentGrid  = getGrid();
+        System.out.println(currentGrid);
+        assertThat(currentGrid, is("xxxoo    "));
+    }
+
     private void setPlayerTwo(final int stoneNumber) {
         grid[stoneNumber] = 'o';
     }
