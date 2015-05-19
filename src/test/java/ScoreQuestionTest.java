@@ -11,7 +11,6 @@ import static org.junit.Assert.assertThat;
  */
 public class ScoreQuestionTest {
 
-    private char winner;
 
     @Test
     public void getWinner_forPlayOneInFirstRowWinner_returnsPlayerOne() {
@@ -25,8 +24,16 @@ public class ScoreQuestionTest {
         assertThat(result, is('o') );
     }
 
+    @Test
+    public void getWinner_forPlayTwoInFirstColumnWinner_returnsPlayerOne() {
+        final char result = getWinner("xo xo x  ");
+        assertThat(result, is('x') );
+    }
+
     public char getWinner(final String s) {
-        if (s.matches(".*ooo.*")) return 'o';
-        else return 'x';
+        if (s.matches(".{3}ooo.{3}")) return 'o';
+        else if(s.matches("x.{2}x.{2}x.{2}")){
+            return 'x';
+        } else return 'x';
     }
 }
