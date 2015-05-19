@@ -80,12 +80,12 @@ public class ScoreQuestionTest {
     public char getWinner(final String s) {
         if (s.matches(".{3}ooo.{3}")) return 'o';
         else if(
-                matchLeftColumn(s)
-             || matchMiddleColumn(s)
-             || matchRightColumn(s)
-             || matchTopRow(s)
-             || matchSecondRow(s)
-             || matchBottomRow(s)
+                matchLeftColumn(s, 'x')
+             || matchMiddleColumn(s, 'x')
+             || matchRightColumn(s, 'x')
+             || matchTopRow(s, 'x')
+             || matchSecondRow(s, 'x')
+             || matchBottomRow(s, 'x')
              || matchTopLeft2BottomRight(s, 'x')
              || matchTopRight2BottomLeft(s, 'x')
                 ){
@@ -101,27 +101,27 @@ public class ScoreQuestionTest {
         return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchBottomRow(final String s) {
-        return s.matches(".{3}.{3}x{3}");
+    private boolean matchBottomRow(final String grid, final char player) {
+        return grid.matches(".{3}.{3}p{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchSecondRow(final String s) {
-        return s.matches(".{3}x{3}.{3}");
+    private boolean matchSecondRow(final String grid, final char player) {
+        return grid.matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchTopRow(final String s) {
-        return s.matches("x{3}.{3}.{3}");
+    private boolean matchTopRow(final String grid, final char player) {
+        return grid.matches("p{3}.{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchRightColumn(final String s) {
-        return s.matches(".{2}x.{2}x.{2}x");
+    private boolean matchRightColumn(final String grid, final char player) {
+        return grid.matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchMiddleColumn(final String s) {
-        return s.matches(".x.{2}x.{2}x.");
+    private boolean matchMiddleColumn(final String grid, final char player) {
+        return grid.matches(".p.{2}p.{2}p.".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchLeftColumn(final String s) {
-        return s.matches("x.{2}x.{2}x.{2}");
+    private boolean matchLeftColumn(final String grid, final char player) {
+        return grid.matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
     }
 }
