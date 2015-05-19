@@ -72,15 +72,43 @@ public class ScoreQuestionTest {
     public char getWinner(final String s) {
         if (s.matches(".{3}ooo.{3}")) return 'o';
         else if(
-                s.matches("x.{2}x.{2}x.{2}")
-             || s.matches(".x.{2}x.{2}x.")
-             || s.matches(".{2}x.{2}x.{2}x")
-             || s.matches("xxx.{3}.{3}")
-             || s.matches(".{3}xxx.{3}")
-             || s.matches(".{3}.{3}xxx")
-             || s.matches("x.{3}x.{3}x")
+                matchLeftColumn(s)
+             || matchMiddleColumn(s)
+             || matchRightColumn(s)
+             || matchTopRow(s)
+             || matchSecondRow(s)
+             || matchBottomRow(s)
+             || matchTopLeft2BottomRight(s)
                 ){
             return 'x';
         } else return '~';
+    }
+
+    private boolean matchTopLeft2BottomRight(final String s) {
+        return s.matches("x.{3}x.{3}x");
+    }
+
+    private boolean matchBottomRow(final String s) {
+        return s.matches(".{3}.{3}xxx");
+    }
+
+    private boolean matchSecondRow(final String s) {
+        return s.matches(".{3}xxx.{3}");
+    }
+
+    private boolean matchTopRow(final String s) {
+        return s.matches("xxx.{3}.{3}");
+    }
+
+    private boolean matchRightColumn(final String s) {
+        return s.matches(".{2}x.{2}x.{2}x");
+    }
+
+    private boolean matchMiddleColumn(final String s) {
+        return s.matches(".x.{2}x.{2}x.");
+    }
+
+    private boolean matchLeftColumn(final String s) {
+        return s.matches("x.{2}x.{2}x.{2}");
     }
 }
