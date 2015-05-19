@@ -20,11 +20,11 @@ import static org.junit.Assert.assertThat;
 public class TicTacToeTest {
     @Test
     public void tictactoe_forPlayOneSetFirstStone() {
-        final String currentRow = setPlayerOne();
+        final String currentRow = getGrid();
         assertThat(currentRow, is("x"));
     }
 
-    private String setPlayerOne() {
+    private String getGrid() {
         return "x";
     }
 }
