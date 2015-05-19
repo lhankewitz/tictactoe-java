@@ -93,4 +93,9 @@ public class SetStoneTest {
         assertThat(currentGrid, is("xxxoo    "));
     }
 
+
+    @Test
+    public void testRegExGen() {
+        assertThat(String.format(".{2}%1$c.%1$c.%1$c.{2}", 'x'), is(".{2}x.x.x.{2}"));
+    }
 }

@@ -85,14 +85,14 @@ public class ScoreQuestionTest {
              || matchSecondRow(s)
              || matchBottomRow(s)
              || matchTopLeft2BottomRight(s)
-             || matchTopRight2BottomLeft(s)
+             || matchTopRight2BottomLeft(s, 'x')
                 ){
             return 'x';
         }  else return '~';
     }
 
-    private boolean matchTopRight2BottomLeft(final String s) {
-        return s.matches(".{2}x.x.x.{2}");
+    private boolean matchTopRight2BottomLeft(final String s, final char player) {
+        return s.matches(String.format(".{2}%1$c.%1$c.%1$c.{2}", player));
     }
 
     private boolean matchTopLeft2BottomRight(final String s) {
