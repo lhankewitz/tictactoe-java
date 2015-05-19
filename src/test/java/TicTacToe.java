@@ -13,15 +13,17 @@ public class TicTacToe {
     }
 
     public void setPlayerOne(final int stoneNumber){
-        if(lastPlayer == PLAYER_ONE) throw new RuntimeException("Next Players turn!");
-        lastPlayer = PLAYER_ONE;
-        grid.setPlayer(stoneNumber, PLAYER_ONE);
+        setPlayerStone(PLAYER_ONE, stoneNumber);
     }
 
     public void setPlayerTwo(final int stoneNumber){
-        if(lastPlayer == PLAYER_TWO) throw new RuntimeException("Next Players turn!");
-        lastPlayer = PLAYER_TWO;
-        grid.setPlayer(stoneNumber, PLAYER_TWO);
+        setPlayerStone(PLAYER_TWO, stoneNumber);
+    }
+
+    private void setPlayerStone(final char playerOne, final int stoneNumber) {
+        if(lastPlayer == playerOne) throw new RuntimeException("Next Players turn!");
+        lastPlayer = playerOne;
+        grid.setPlayer(stoneNumber, playerOne);
     }
 
     public String getGrid() {
