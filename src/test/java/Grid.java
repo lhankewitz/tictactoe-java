@@ -7,6 +7,7 @@ public class Grid {
     private char[] grid = "         ".toCharArray();
 
     public void setPlayer(final int stoneNumber, final char player) {
+        if(stoneNumber < 0 || 8 < stoneNumber) throw new RuntimeException("Invalid stone. Allowed are 0-8");
         if(grid[stoneNumber] != ' ') throw new RuntimeException("Stone already set");
         grid[stoneNumber] = player;
     }

@@ -47,4 +47,14 @@ public class ValidationTest {
             assertThat(e.getMessage(), containsString("Next Players turn!"));
         }
     }
+
+    @Test
+    public void settingStone_forInvalidStoneNumber_throwsException() {
+        try {
+            ticTacToe.setPlayerOne(9);
+            fail("Should not be reached because stone is invalid");
+        } catch (RuntimeException e) {
+            assertThat(e.getMessage(), containsString("Invalid stone"));
+        }
+    }
 }
