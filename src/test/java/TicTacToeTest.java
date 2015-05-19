@@ -4,12 +4,14 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Class to ...
+ * Class to Test the tic tac toe game kata.
  *
  * @author lumiha
  * @since 19/05/15.
 
-[]ToTest:
+ []ToTest: show first stone
+ []ToTest: show opponent stone
+
  */
 public class TicTacToeTest {
     @Test
