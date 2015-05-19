@@ -27,10 +27,21 @@ public class ValidationTest {
     }
 
     @Test
-    public void settingOneStone_twiceOfTheSamePlayer_throwsException() {
+    public void settingOneStone_twiceOfPlayerOne_throwsException() {
         try {
             ticTacToe.setPlayerOne(0);
             ticTacToe.setPlayerOne(1);
+            fail("Should not be reached because no setting twice of the same player");
+        } catch (RuntimeException e) {
+            assertThat(e.getMessage(), containsString("Next Players turn!"));
+        }
+    }
+    @Test
+    public void settingOneStone_twiceOfPlayerTwo_throwsException() {
+        try {
+            ticTacToe.setPlayerOne(0);
+            ticTacToe.setPlayerTwo(1);
+            ticTacToe.setPlayerTwo(2);
             fail("Should not be reached because no setting twice of the same player");
         } catch (RuntimeException e) {
             assertThat(e.getMessage(), containsString("Next Players turn!"));
