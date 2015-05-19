@@ -15,11 +15,11 @@ public class ScoreQuestionTest {
 
     @Test
     public void getWinner_forPlayOneWinner_returnsPlayerOne() {
-        final char result = getWinner();
+        final char result = getWinner("xxxoo    ");
         assertThat(result, is('x') );
     }
 
-    public char getWinner() {
+    public char getWinner(final String s) {
         return winner = 'x';
     }
 }
