@@ -12,6 +12,8 @@ import static org.junit.Assert.assertThat;
 public class ScoreQuestionTest {
 
 
+    private static final char REG_EXP_PLAYER_CODE = 'p';
+
     @Test
     public void getWinner_forPlayOneInFirstRowWinner_returnsPlayerOne() {
         final char result = getWinner("xxxoo    ");
@@ -84,19 +86,19 @@ public class ScoreQuestionTest {
              || matchTopRow(s)
              || matchSecondRow(s)
              || matchBottomRow(s)
-             || matchTopLeft2BottomRight(s)
-             || matchTopRight2BottomLeft(s)
+             || matchTopLeft2BottomRight(s, 'x')
+             || matchTopRight2BottomLeft(s, 'x')
                 ){
             return 'x';
         }  else return '~';
     }
 
-    private boolean matchTopRight2BottomLeft(final String s) {
-        return s.matches(".{2}x.x.x.{2}");
+    private boolean matchTopRight2BottomLeft(final String grid, final char player) {
+        return grid.matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    private boolean matchTopLeft2BottomRight(final String s) {
-        return s.matches("x.{3}x.{3}x");
+    private boolean matchTopLeft2BottomRight(final String grid, final char player) {
+        return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
     }
 
     private boolean matchBottomRow(final String s) {
