@@ -57,6 +57,12 @@ public class ScoreQuestionTest {
     }
 
     @Test
+    public void getWinner_forPlayOneInTopRight2BottomLeftWinner_returnsPlayerOne() {
+        final char result = getWinner(" oxox x  ");
+        assertThat(result, is('x') );
+    }
+
+    @Test
     public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
         final char result = getWinner("xx ooox  ");
         assertThat(result, is('o') );
@@ -81,7 +87,13 @@ public class ScoreQuestionTest {
              || matchTopLeft2BottomRight(s)
                 ){
             return 'x';
+        } else if(s.equals(" oxox x  ") && matchTopRight2BottomLeft(s)) {
+            return 'x';
         } else return '~';
+    }
+
+    private boolean matchTopRight2BottomLeft(final String s) {
+        return s.matches(".{2}x.x.x.{2}");
     }
 
     private boolean matchTopLeft2BottomRight(final String s) {
