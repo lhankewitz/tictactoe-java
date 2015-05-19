@@ -1,8 +1,9 @@
 public class TicTacToe {
-    static final char REG_EXP_PLAYER_CODE = 'p';
-    static final char PLAYER_TWO = 'o';
-    static final char PLAYER_ONE = 'x';
-    private static final char MATCH = '~';
+    public static final char PLAYER_TWO = 'o';
+    public static final char PLAYER_ONE = 'x';
+    public static final char MATCH = '~';
+    public static final char OPEN = '?';
+
     private Grid grid = new Grid();
     private char lastPlayer = PLAYER_TWO;
 
@@ -33,7 +34,8 @@ public class TicTacToe {
     public char getWinner() {
         if (isWinner(PLAYER_TWO)) return PLAYER_TWO;
         else if (isWinner(PLAYER_ONE)) return PLAYER_ONE;
-        else return MATCH;
+        else if(grid.isFull()) return MATCH;
+        else return OPEN;
     }
 
     private boolean isWinner(final char player) {

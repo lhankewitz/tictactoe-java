@@ -125,7 +125,16 @@ public class ScoreQuestionTest {
         grid.setGrid(gridValue);
 
         final char result = ticTacToe.getWinner();
-        assertThat(result, is('~') );
+        assertThat(result, is(TicTacToe.MATCH) );
+    }
+
+    @Test
+    public void getWinner_forUnfinishedGame_returnsOpenGame() {
+        final String gridValue = "xoxoxoox ";
+        grid.setGrid(gridValue);
+
+        final char result = ticTacToe.getWinner();
+        assertThat(result, is(TicTacToe.OPEN) );
     }
 
 }
