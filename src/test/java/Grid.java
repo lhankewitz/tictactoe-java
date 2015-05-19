@@ -6,6 +6,7 @@ public class Grid {
     private char[] grid = "         ".toCharArray();
 
     public void setPlayer(final int stoneNumber, final char player) {
+        if(grid[stoneNumber] != ' ') throw new RuntimeException("Stone already set");
         grid[stoneNumber] = player;
     }
 
