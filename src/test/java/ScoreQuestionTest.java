@@ -33,15 +33,21 @@ public class ScoreQuestionTest {
     }
 
     @Test
-    public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
-        final char result = getWinner("xx ooox  ");
-        assertThat(result, is('o') );
+    public void getWinner_forPlayOneInFirstColumnWinner_returnsPlayerOne() {
+        final char result = getWinner("xo xo x  ");
+        assertThat(result, is('x') );
     }
 
     @Test
-    public void getWinner_forPlayTwoInFirstColumnWinner_returnsPlayerOne() {
-        final char result = getWinner("xo xo x  ");
+    public void getWinner_forPlayOneInSecondColumnWinner_returnsPlayerOne() {
+        final char result = getWinner("ox ox  x ");
         assertThat(result, is('x') );
+    }
+
+    @Test
+    public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
+        final char result = getWinner("xx ooox  ");
+        assertThat(result, is('o') );
     }
 
     @Test
@@ -58,6 +64,7 @@ public class ScoreQuestionTest {
              || s.matches("xxx.{3}.{3}")
              || s.matches(".{3}xxx.{3}")
              || s.matches(".{3}.{3}xxx")
+             || s.matches(".x.{2}x.{2}x.")
                 ){
             return 'x';
         } else return '~';
