@@ -33,7 +33,7 @@ public class ScoreQuestionTest {
     }
 
     @Test
-    public void getWinner_forPlayOneInFirstColumnWinner_returnsPlayerOne() {
+    public void getWinner_forPlayOneInFistColumnWinner_returnsPlayerOne() {
         final char result = getWinner("xo xo x  ");
         assertThat(result, is('x') );
     }
@@ -85,14 +85,14 @@ public class ScoreQuestionTest {
              || matchSecondRow(s)
              || matchBottomRow(s)
              || matchTopLeft2BottomRight(s)
-             || matchTopRight2BottomLeft(s, 'x')
+             || matchTopRight2BottomLeft(s)
                 ){
             return 'x';
         }  else return '~';
     }
 
-    private boolean matchTopRight2BottomLeft(final String s, final char player) {
-        return s.matches(String.format(".{2}%1$c.%1$c.%1$c.{2}", player));
+    private boolean matchTopRight2BottomLeft(final String s) {
+        return s.matches(".{2}x.x.x.{2}");
     }
 
     private boolean matchTopLeft2BottomRight(final String s) {
