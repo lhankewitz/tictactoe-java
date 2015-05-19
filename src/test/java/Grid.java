@@ -1,12 +1,13 @@
+/**
+ * Class representing the grid.
+ *
+ * */
 public class Grid {
     private char[] grid = "         ".toCharArray();
 
-    public void setPlayerTwo(final int stoneNumber) {
-        grid[stoneNumber] = 'o';
-    }
 
-    public void setPlayerOne(final int stoneNumber) {
-        grid[stoneNumber] = 'x';
+    public void setPlayer(final char player, final int stoneNumber) {
+        grid[stoneNumber] = player;
     }
 
     public String getGrid() {
