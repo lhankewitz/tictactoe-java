@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -11,14 +9,21 @@ import static org.junit.Assert.assertThat;
  * @author lumiha
  * @since 19/05/15.
  * <p>
- * []ToTest: Get empty grid
- * []ToTest: show first stone
- * []ToTest: show opponent stone
+ * [x]ToTest: Get empty grid
+ * [x]ToTest: show player one first stone
+ * [x]ToTest: show player two first stone
+ * []ToTest: show player one second stone
+ * []ToTest: show player two second stone
  * []ToTest: Play one wins in row
  * []ToTest: player one wins in column
  * []ToTest: play one wins in diagonal
  * []ToTest: match
  * []ToTest: layout field
+ * []ToTest: who did win?
+ *
+ * 123
+ * 456
+ * 789
  */
 public class TicTacToeTest {
 
@@ -32,7 +37,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void tictactoe_forPlayOneSetFirstStone() {
+    public void getGrid_forPlayOneSetFirstStone() {
         setPlayerOne();
         final String currentGrid  = getGrid();
         System.out.println(currentGrid);
@@ -40,7 +45,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void tictactoe_forPlayOneAndTwoSetFirstStone() {
+    public void getGrid_forPlayOneAndTwoSetFirstStone() {
         setPlayerOne();
         setPlayerTwo();
         final String currentGrid  = getGrid();
