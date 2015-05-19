@@ -85,11 +85,10 @@ public class ScoreQuestionTest {
              || matchSecondRow(s)
              || matchBottomRow(s)
              || matchTopLeft2BottomRight(s)
+             || matchTopRight2BottomLeft(s)
                 ){
             return 'x';
-        } else if(s.equals(" oxox x  ") && matchTopRight2BottomLeft(s)) {
-            return 'x';
-        } else return '~';
+        }  else return '~';
     }
 
     private boolean matchTopRight2BottomLeft(final String s) {
