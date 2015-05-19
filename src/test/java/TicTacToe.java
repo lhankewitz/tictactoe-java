@@ -2,18 +2,18 @@ public class TicTacToe {
     static final char REG_EXP_PLAYER_CODE = 'p';
     static final char PLAYER_TWO = 'o';
     static final char PLAYER_ONE = 'x';
-
-    private char[] grid = "         ".toCharArray();
+    private final Grid grid2;
 
     public TicTacToe(final Grid grid) {
+        grid2 = grid;
     }
 
     public void setPlayer(final int stoneNumber, final char player) {
-        grid[stoneNumber] = player;
+        grid2.setPlayer(stoneNumber, player);
     }
 
     public String getGrid() {
-        return String.valueOf(grid);
+        return grid2.getGrid();
     }
 
     public char getWinner(final String grid) {

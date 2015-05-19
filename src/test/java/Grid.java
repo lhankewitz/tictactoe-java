@@ -5,7 +5,7 @@
 public class Grid {
     private char[] grid = "         ".toCharArray();
 
-    public void setPlayer(final char player, final int stoneNumber) {
+    public void setPlayer(final int stoneNumber, final char player) {
         grid[stoneNumber] = player;
     }
 
