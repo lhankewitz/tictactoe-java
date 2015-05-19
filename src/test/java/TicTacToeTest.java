@@ -20,24 +20,25 @@ import static org.junit.Assert.assertThat;
  */
 public class TicTacToeTest {
 
-    private String grid = "  \n  \n  \n";
+    private String grid = "      ";
 
     @Test
     public void getGrid_BeforeGame() {
         final String currentGrid = getGrid();
         System.out.println(currentGrid);
-        assertThat(currentGrid, is("  \n  \n  \n"));
+        assertThat(currentGrid, is("      "));
     }
 
     @Test
     public void tictactoe_forPlayOneSetFirstStone() {
         setPlayerOne();
         final String currentGrid  = getGrid();
-        assertThat(currentGrid, is("x \n  \n  \n"));
+        System.out.println(currentGrid);
+        assertThat(currentGrid, is("x     "));
     }
 
     private void setPlayerOne() {
-        grid = "x \n  \n  \n";
+        grid = "x     ";
     }
 
     private String getGrid() {
