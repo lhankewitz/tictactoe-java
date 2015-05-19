@@ -77,6 +77,13 @@ public class ScoreQuestionTest {
     }
 
     @Test
+    public void getWinner_forPlayTwoInThirdRowWinner_returnsPlayerTwo() {
+        //                             012345678
+        final char result = scoreChecker.getWinner("xx   xooo");
+        assertThat(result, is(ScoreChecker.PLAYER_TWO) );
+    }
+
+    @Test
     public void getWinner_forMatch_returnsMatch() {
         final char result = scoreChecker.getWinner("oxxxxooox");
         assertThat(result, is('~') );
