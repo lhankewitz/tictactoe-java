@@ -65,6 +65,12 @@ public class ScoreQuestionTest {
     }
 
     @Test
+    public void getWinner_forPlayTwoInFirstRowWinner_returnsPlayerTwo() {
+        final char result = scoreChecker.getWinner("oooxx xx ");
+        assertThat(result, is(ScoreChecker.PLAYER_TWO) );
+    }
+
+    @Test
     public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
         final char result = scoreChecker.getWinner("xx ooox  ");
         assertThat(result, is(ScoreChecker.PLAYER_TWO) );

@@ -7,19 +7,20 @@ public class ScoreChecker {
     }
 
     public char getWinner(final String grid) {
-        if (matchMiddleRow(grid, PLAYER_TWO)) return PLAYER_TWO;
-        else if (
-                matchLeftColumn(grid, PLAYER_ONE)
-                        || matchMiddleColumn(grid, PLAYER_ONE)
-                        || matchRightColumn(grid, PLAYER_ONE)
-                        || matchTopRow(grid, PLAYER_ONE)
-                        || matchMiddleRow(grid, PLAYER_ONE)
-                        || matchBottomRow(grid, PLAYER_ONE)
-                        || matchTopLeft2BottomRight(grid, PLAYER_ONE)
-                        || matchTopRight2BottomLeft(grid, PLAYER_ONE)
-                ) {
-            return PLAYER_ONE;
-        } else return '~';
+        if (isWinner(grid, PLAYER_TWO)) return PLAYER_TWO;
+        else if (isWinner(grid, PLAYER_ONE)) return PLAYER_ONE;
+        else return '~';
+    }
+
+    private boolean isWinner(final String grid, final char player) {
+        return matchLeftColumn(grid, player)
+                || matchMiddleColumn(grid, player)
+                || matchRightColumn(grid, player)
+                || matchTopRow(grid, player)
+                || matchMiddleRow(grid, player)
+                || matchBottomRow(grid, player)
+                || matchTopLeft2BottomRight(grid, player)
+                || matchTopRight2BottomLeft(grid, player);
     }
 
     boolean matchTopRow(final String grid, final char player) {
