@@ -12,116 +12,68 @@ import static org.junit.Assert.assertThat;
 public class ScoreQuestionTest {
 
 
-    private static final char REG_EXP_PLAYER_CODE = 'p';
+    private final ScoreChecker scoreChecker = new ScoreChecker();
 
     @Test
     public void getWinner_forPlayOneInFirstRowWinner_returnsPlayerOne() {
-        final char result = getWinner("xxxoo    ");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("xxxoo    ");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInSecondRowWinner_returnsPlayerOne() {
         //                             012345678
-        final char result = getWinner("oo xxx   ");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("oo xxx   ");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInThirdRowWinner_returnsPlayerOne() {
         //                             012345678
-        final char result = getWinner("oo    xxx");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("oo    xxx");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInFistColumnWinner_returnsPlayerOne() {
-        final char result = getWinner("xo xo x  ");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("xo xo x  ");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInSecondColumnWinner_returnsPlayerOne() {
-        final char result = getWinner("ox ox  x ");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("ox ox  x ");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInThirdColumnWinner_returnsPlayerOne() {
-        final char result = getWinner("o xo x  x");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("o xo x  x");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInTopLeft2BottomRightWinner_returnsPlayerOne() {
-        final char result = getWinner("xo ox   x");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner("xo ox   x");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayOneInTopRight2BottomLeftWinner_returnsPlayerOne() {
-        final char result = getWinner(" oxox x  ");
-        assertThat(result, is('x') );
+        final char result = scoreChecker.getWinner(" oxox x  ");
+        assertThat(result, is(ScoreChecker.PLAYER_ONE) );
     }
 
     @Test
     public void getWinner_forPlayTwoInSecondRowWinner_returnsPlayerTwo() {
-        final char result = getWinner("xx ooox  ");
-        assertThat(result, is('o') );
+        final char result = scoreChecker.getWinner("xx ooox  ");
+        assertThat(result, is(ScoreChecker.PLAYER_TWO) );
     }
 
     @Test
     public void getWinner_forMatch_returnsMatch() {
-        final char result = getWinner("oxxxxooox");
+        final char result = scoreChecker.getWinner("oxxxxooox");
         assertThat(result, is('~') );
     }
 
-
-    public char getWinner(final String grid) {
-        if (matchMiddleRow(grid, 'o')) return 'o';
-        else if(
-                matchLeftColumn(grid, 'x')
-             || matchMiddleColumn(grid, 'x')
-             || matchRightColumn(grid, 'x')
-             || matchTopRow(grid, 'x')
-             || matchMiddleRow(grid, 'x')
-             || matchBottomRow(grid, 'x')
-             || matchTopLeft2BottomRight(grid, 'x')
-             || matchTopRight2BottomLeft(grid, 'x')
-                ){
-            return 'x';
-        }  else return '~';
-    }
-
-    private boolean matchTopRow(final String grid, final char player) {
-        return grid.matches("p{3}.{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchMiddleRow(final String grid, final char player) {
-        return grid.matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchBottomRow(final String grid, final char player) {
-        return grid.matches(".{3}.{3}p{3}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchLeftColumn(final String grid, final char player) {
-        return grid.matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchMiddleColumn(final String grid, final char player) {
-        return grid.matches(".p.{2}p.{2}p.".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchRightColumn(final String grid, final char player) {
-        return grid.matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchTopRight2BottomLeft(final String grid, final char player) {
-        return grid.matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
-    }
-
-    private boolean matchTopLeft2BottomRight(final String grid, final char player) {
-        return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
-    }
 }

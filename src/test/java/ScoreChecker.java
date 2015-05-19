@@ -1,0 +1,56 @@
+public class ScoreChecker {
+    static final char REG_EXP_PLAYER_CODE = 'p';
+    static final char PLAYER_TWO = 'o';
+    static final char PLAYER_ONE = 'x';
+
+    public ScoreChecker() {
+    }
+
+    public char getWinner(final String grid) {
+        if (matchMiddleRow(grid, PLAYER_TWO)) return PLAYER_TWO;
+        else if (
+                matchLeftColumn(grid, PLAYER_ONE)
+                        || matchMiddleColumn(grid, PLAYER_ONE)
+                        || matchRightColumn(grid, PLAYER_ONE)
+                        || matchTopRow(grid, PLAYER_ONE)
+                        || matchMiddleRow(grid, PLAYER_ONE)
+                        || matchBottomRow(grid, PLAYER_ONE)
+                        || matchTopLeft2BottomRight(grid, PLAYER_ONE)
+                        || matchTopRight2BottomLeft(grid, PLAYER_ONE)
+                ) {
+            return PLAYER_ONE;
+        } else return '~';
+    }
+
+    boolean matchTopRow(final String grid, final char player) {
+        return grid.matches("p{3}.{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchMiddleRow(final String grid, final char player) {
+        return grid.matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchBottomRow(final String grid, final char player) {
+        return grid.matches(".{3}.{3}p{3}".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchLeftColumn(final String grid, final char player) {
+        return grid.matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchMiddleColumn(final String grid, final char player) {
+        return grid.matches(".p.{2}p.{2}p.".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchRightColumn(final String grid, final char player) {
+        return grid.matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchTopRight2BottomLeft(final String grid, final char player) {
+        return grid.matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
+    }
+
+    boolean matchTopLeft2BottomRight(final String grid, final char player) {
+        return grid.matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
+    }
+}

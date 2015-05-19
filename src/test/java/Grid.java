@@ -1,8 +1,5 @@
-public class TicTacToe {
-    public char[] grid = "         ".toCharArray();
-
-    public TicTacToe() {
-    }
+public class Grid {
+    private char[] grid = "         ".toCharArray();
 
     public void setPlayerTwo(final int stoneNumber) {
         grid[stoneNumber] = 'o';

@@ -34,61 +34,61 @@ import static org.junit.Assert.assertThat;
  */
 public class SetStoneTest {
 
-    private final TicTacToe ticTacToe = new TicTacToe();
+    private final Grid grid = new Grid();
 
     @Test
     public void getGrid_BeforeGame() {
-        final String currentGrid = ticTacToe.getGrid();
+        final String currentGrid = grid.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("         "));
     }
 
     @Test
     public void getGrid_forPlayOneSetFirstStone() {
-        ticTacToe.setPlayerOne(0);
-        final String currentGrid  = ticTacToe.getGrid();
+        grid.setPlayerOne(0);
+        final String currentGrid  = grid.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x        "));
     }
 
     @Test
     public void getGrid_forPlayOneAndTwoSetFirstStone() {
-        ticTacToe.setPlayerOne(0);
-        ticTacToe.setPlayerTwo(3);
-        final String currentGrid  = ticTacToe.getGrid();
+        grid.setPlayerOne(0);
+        grid.setPlayerTwo(3);
+        final String currentGrid  = grid.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x  o     "));
     }
 
     @Test
     public void getGrid_forPlayOneSetSecondStone() {
-        ticTacToe.setPlayerOne(0);
-        ticTacToe.setPlayerTwo(3);
-        ticTacToe.setPlayerOne(1);
-        final String currentGrid  = ticTacToe.getGrid();
+        grid.setPlayerOne(0);
+        grid.setPlayerTwo(3);
+        grid.setPlayerOne(1);
+        final String currentGrid  = grid.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xx o     "));
     }
 
     @Test
     public void getGrid_forPlayTwoSetSecondStone() {
-        ticTacToe.setPlayerOne(0);
-        ticTacToe.setPlayerTwo(3);
-        ticTacToe.setPlayerOne(1);
-        ticTacToe.setPlayerTwo(4);
-        final String currentGrid  = ticTacToe.getGrid();
+        grid.setPlayerOne(0);
+        grid.setPlayerTwo(3);
+        grid.setPlayerOne(1);
+        grid.setPlayerTwo(4);
+        final String currentGrid  = grid.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xx oo    "));
     }
 
     @Test
     public void getGrid_forPlayOneWinsInRow() {
-        ticTacToe.setPlayerOne(0);
-        ticTacToe.setPlayerTwo(3);
-        ticTacToe.setPlayerOne(1);
-        ticTacToe.setPlayerTwo(4);
-        ticTacToe.setPlayerOne(2);
-        final String currentGrid  = ticTacToe.getGrid();
+        grid.setPlayerOne(0);
+        grid.setPlayerTwo(3);
+        grid.setPlayerOne(1);
+        grid.setPlayerTwo(4);
+        grid.setPlayerOne(2);
+        final String currentGrid  = grid.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xxxoo    "));
     }
