@@ -77,17 +77,17 @@ public class ScoreQuestionTest {
     }
 
 
-    public char getWinner(final String s) {
-        if (s.matches(".{3}ooo.{3}")) return 'o';
+    public char getWinner(final String grid) {
+        if (matchMiddleRow(grid, 'o')) return 'o';
         else if(
-                matchLeftColumn(s, 'x')
-             || matchMiddleColumn(s, 'x')
-             || matchRightColumn(s, 'x')
-             || matchTopRow(s, 'x')
-             || matchMiddleRow(s, 'x')
-             || matchBottomRow(s, 'x')
-             || matchTopLeft2BottomRight(s, 'x')
-             || matchTopRight2BottomLeft(s, 'x')
+                matchLeftColumn(grid, 'x')
+             || matchMiddleColumn(grid, 'x')
+             || matchRightColumn(grid, 'x')
+             || matchTopRow(grid, 'x')
+             || matchMiddleRow(grid, 'x')
+             || matchBottomRow(grid, 'x')
+             || matchTopLeft2BottomRight(grid, 'x')
+             || matchTopRight2BottomLeft(grid, 'x')
                 ){
             return 'x';
         }  else return '~';
