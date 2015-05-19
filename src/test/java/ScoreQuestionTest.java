@@ -93,11 +93,11 @@ public class ScoreQuestionTest {
     }
 
     private boolean matchSecondRow(final String s) {
-        return s.matches(".{3}xxx.{3}");
+        return s.matches(".{3}x{3}.{3}");
     }
 
     private boolean matchTopRow(final String s) {
-        return s.matches("xxx.{3}.{3}");
+        return s.matches("x{3}.{3}.{3}");
     }
 
     private boolean matchRightColumn(final String s) {
