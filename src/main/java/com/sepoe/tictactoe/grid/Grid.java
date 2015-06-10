@@ -1,3 +1,5 @@
+package com.sepoe.tictactoe.grid;
+
 /**
  * Class representing the grid.
  * <p>
@@ -42,27 +44,27 @@ public class Grid {
         return getGrid().matches(".{3}p{3}.{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    boolean matchBottomRow(final char player) {
+    public boolean matchBottomRow(final char player) {
         return getGrid().matches(".{3}.{3}p{3}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    boolean matchLeftColumn(final char player) {
+    public boolean matchLeftColumn(final char player) {
         return getGrid().matches("p.{2}p.{2}p.{2}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    boolean matchMiddleColumn(final char player) {
+    public boolean matchMiddleColumn(final char player) {
         return getGrid().matches(".p.{2}p.{2}p.".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    boolean matchRightColumn(final char player) {
+    public boolean matchRightColumn(final char player) {
         return getGrid().matches(".{2}p.{2}p.{2}p".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    boolean matchTopRight2BottomLeft(final char player) {
+    public boolean matchTopRight2BottomLeft(final char player) {
         return getGrid().matches(".{2}p.p.p.{2}".replace(REG_EXP_PLAYER_CODE, player));
     }
 
-    boolean matchTopLeft2BottomRight(final char player) {
+    public boolean matchTopLeft2BottomRight(final char player) {
         return getGrid().matches("p.{3}p.{3}p".replace(REG_EXP_PLAYER_CODE, player));
     }
 

@@ -1,3 +1,5 @@
+import com.sepoe.tictactoe.game.TicTacToe;
+import com.sepoe.tictactoe.grid.Grid;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;

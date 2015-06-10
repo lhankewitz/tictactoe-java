@@ -1,3 +1,7 @@
+package com.sepoe.tictactoe.game;
+
+import com.sepoe.tictactoe.grid.Grid;
+
 public class TicTacToe {
     public static final char PLAYER_TWO = 'o';
     public static final char PLAYER_ONE = 'x';

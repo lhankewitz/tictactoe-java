@@ -1,3 +1,5 @@
+package com.sepoe.tictactoe.grid;
+
 /**
  * Class to print the grid.
  *
