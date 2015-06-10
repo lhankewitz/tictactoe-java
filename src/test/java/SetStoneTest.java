@@ -30,12 +30,9 @@ import static org.junit.Assert.assertThat;
  * [x]ToTest: no two successive set of stones for one player
  * [x]ToTest: not yet finished game
  * [x]ToTest: reset game
- * []ToTest: invalid stones throw exception
- * []ToTest: layout field
+ * [x]ToTest: invalid stones throw exception
+ * [x]ToTest: layout field
  *
- * 012
- * 345
- * 678
  */
 public class SetStoneTest {
 

@@ -4,7 +4,7 @@
  * @author lumiha
  * @since 10/06/15.
  */
-public class GridPrinter {
+public class FramedGridLayout {
     private static final String ENDLINE = "\n";
     private static final String SEPARATOR = "- |-+-+-|" + ENDLINE;
     private static final String HEADLINE = "   1|2|3" + ENDLINE;
@@ -14,7 +14,7 @@ public class GridPrinter {
     private static final String SPACE = " ";
     private final Grid grid;
 
-    public GridPrinter(final Grid grid) {
+    public FramedGridLayout(final Grid grid) {
         this.grid = grid;
     }
 

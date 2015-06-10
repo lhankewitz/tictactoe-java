@@ -14,7 +14,7 @@ public class PrintGameStatusTest {
 
     private Grid grid;
     private TicTacToe ticTacToe;
-    private GridPrinter gridPrinter;
+    private FramedGridLayout framedGridLayout;
 
     @Before
     public void setUp() {
@@ -32,12 +32,12 @@ public class PrintGameStatusTest {
         ticTacToe.setPlayerTwo(3, 2);
         ticTacToe.setPlayerOne(3, 3);
 
-        gridPrinter = new GridPrinter(grid);
+        framedGridLayout = new FramedGridLayout(grid);
     }
 
     @Test
     public void printGrid() {
-        final String result = gridPrinter.formatGrid();
+        final String result = framedGridLayout.formatGrid();
         String expected =
                  "   1|2|3" + "\n"
                 + "  +-----+" + "\n"
