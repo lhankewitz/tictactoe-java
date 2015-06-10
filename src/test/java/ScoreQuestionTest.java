@@ -25,7 +25,7 @@ public class ScoreQuestionTest {
 
     @Test
     public void getWinner_forPlayOneInSecondRowWinner_returnsPlayerOne() {
-        //                             012345678
+        //                        012345678
         final String gridValue = "oo xxx   ";
         grid.setGrid(gridValue);
         final char result = ticTacToe.getWinner();
@@ -34,7 +34,7 @@ public class ScoreQuestionTest {
 
     @Test
     public void getWinner_forPlayOneInThirdRowWinner_returnsPlayerOne() {
-        //                             012345678
+        //                        012345678
         final String gridValue = "oo    xxx";
         grid.setGrid(gridValue);
         final char result = ticTacToe.getWinner();

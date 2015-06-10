@@ -16,7 +16,7 @@ public class TicTacToeApp {
         ticTacToe.setPlayerTwo(2, 1);
         ticTacToe.setPlayerOne(3, 3);
 
-        System.out.println(new FramedGridLayout(grid).formatGrid());
+        System.out.println(new FramedGridLayout().formatGrid(grid));
 
         System.out.println("Winner is " + ticTacToe.getWinner());
     }

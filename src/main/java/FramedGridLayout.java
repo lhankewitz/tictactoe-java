@@ -12,24 +12,20 @@ public class FramedGridLayout {
     private static final String BOTTOM_BORDER = "  +-----+" + ENDLINE;
     private static final String TOP_BORDER = "  +-----+" + ENDLINE;
     private static final String SPACE = " ";
-    private final Grid grid;
 
-    public FramedGridLayout(final Grid grid) {
-        this.grid = grid;
-    }
 
-    public String formatGrid() {
+    public String formatGrid(final Grid grid) {
         return HEADLINE
                 + TOP_BORDER
-                + formatRow(1)
+                + formatRow(grid, 1)
                 + SEPARATOR
-                + formatRow(2)
+                + formatRow(grid, 2)
                 + SEPARATOR
-                + formatRow(3)
+                + formatRow(grid, 3)
                 + BOTTOM_BORDER;
     }
 
-    private String formatRow(final int row) {
+    private String formatRow(final Grid grid, final int row) {
         return row + SPACE + vSEPARATOR
                 + grid.get(row, 1) + vSEPARATOR
                 + grid.get(row, 2) + vSEPARATOR
