@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -57,8 +58,17 @@ public class SetStoneTest {
     }
 
     @Test
-    public void getGrid_forPlayOneSetFirstStoneWithCoordinates() {
-        ticTacToe.setPlayerOne(0,0);
+    public void getGrid_forPlayOneSetFirstStone0WithCoordinates() {
+        ticTacToe.setPlayerOne(1,1);
+        final String currentGrid  = ticTacToe.getGrid();
+        System.out.println(currentGrid);
+        assertThat(currentGrid, is("x        "));
+    }
+
+    @Test
+    @Ignore
+    public void getGrid_forPlayOneSetFirstStone1WithCoordinates() {
+        ticTacToe.setPlayerOne(1,2);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x        "));
