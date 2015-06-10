@@ -57,22 +57,6 @@ public class SetStoneTest {
         assertThat(currentGrid, is("x        "));
     }
 
-    @Test
-    public void getGrid_forPlayOneSetFirstStone0WithCoordinates() {
-        ticTacToe.setPlayerOne(1,1);
-        final String currentGrid  = ticTacToe.getGrid();
-        System.out.println(currentGrid);
-        assertThat(currentGrid, is("x        "));
-    }
-
-    @Test
-    public void getGrid_forPlayOneSetFirstStone1WithCoordinates() {
-        ticTacToe.setPlayerOne(2,1);
-        final String currentGrid  = ticTacToe.getGrid();
-        System.out.println(currentGrid);
-        assertThat(currentGrid, is(" x       "));
-    }
-
 
     @Test
     public void getGrid_forPlayOneAndTwoSetFirstStone() {
