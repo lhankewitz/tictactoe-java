@@ -2,20 +2,25 @@
  * Class representing the grid.
  *
  * The grid consists of 9 stones numbered from 0 to 8 in the following positions.
- * |-----|
- * |0|1|2|
- * |-----|
- * |3|4|5|
- * |-----|
- * |6|7|8|
- * |-----|
+ * row\column
+ *     1|2|3
+ *    |-----|
+ *  1 |0|1|2|
+ *  - |-----|
+ *  2 |3|4|5|
+ *  - |-----|
+ *  3 |6|7|8|
+ *    |-----|
+ *
+ * or with coordinates
+ *
  * */
 public class Grid {
     private static final char REG_EXP_PLAYER_CODE = 'p';
     private char[] grid = "         ".toCharArray();
 
     public void setPlayer(final int stoneNumber, final char player) {
-        if(stoneNumber < 0 || 8 < stoneNumber) throw new RuntimeException("Invalid stone. Allowed are 0-8");
+        if(stoneNumber < 0 || 8 < stoneNumber) throw new RuntimeException("Invalid stone. Allowed are 0-8 but was " + stoneNumber);
         if(grid[stoneNumber] != ' ') throw new RuntimeException("Stone already set");
         grid[stoneNumber] = player;
     }
