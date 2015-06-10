@@ -5,6 +5,13 @@
  * @since 10/06/15.
  */
 public class GridPrinter {
+    private static final String ENDLINE = "\n";
+    private static final String SEPARATOR = "- |-+-+-|" + ENDLINE;
+    private static final String HEADLINE = "   1|2|3" + ENDLINE;
+    private static final String vSEPARATOR = "|";
+    private static final String BOTTOM_BORDER = "  +-----+" + ENDLINE;
+    private static final String TOP_BORDER = "  +-----+" + ENDLINE;
+    private static final String SPACE = " ";
     private final Grid grid;
 
     public GridPrinter(final Grid grid) {
@@ -12,15 +19,21 @@ public class GridPrinter {
     }
 
     public String formatGrid() {
-        String expected =
-                "   1|2|3" + "\n"
-                        + "  +-----+" + "\n"
-                        + "1 |x|o|x|" + "\n"
-                        + "- |-+-+-|" + "\n"
-                        + "2 |o|x|o|" + "\n"
-                        + "- |-+-+-|" + "\n"
-                        + "3 |x|o|x|" + "\n"
-                        + "  +-----+" + "\n";
-        return expected;
+        return HEADLINE
+                + TOP_BORDER
+                + formatRow(1)
+                + SEPARATOR
+                + formatRow(2)
+                + SEPARATOR
+                + formatRow(3)
+                + BOTTOM_BORDER;
+    }
+
+    private String formatRow(final int row) {
+        return row + SPACE + vSEPARATOR
+                + grid.get(row, 1) + vSEPARATOR
+                + grid.get(row, 2) + vSEPARATOR
+                + grid.get(row, 3)  + vSEPARATOR
+                + ENDLINE;
     }
 }

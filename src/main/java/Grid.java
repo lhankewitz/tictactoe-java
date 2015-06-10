@@ -89,4 +89,8 @@ public class Grid {
 
         return (row - 1) * 3 + (column - 1);
     }
+
+    public char get(final int row, final int column) {
+        return grid[calculateStone(row,column)];
+    }
 }
