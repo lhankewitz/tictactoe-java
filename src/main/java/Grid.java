@@ -1,6 +1,6 @@
 /**
  * Class representing the grid.
- *
+ * <p>
  * The grid consists of 9 stones numbered from 0 to 8 in the following positions.
  * row\column
  *     1|2|3
@@ -13,15 +13,15 @@
  *    |-----|
  *
  * or with coordinates
- *
- * */
+ */
 public class Grid {
     private static final char REG_EXP_PLAYER_CODE = 'p';
     private char[] grid = "         ".toCharArray();
 
     public void setPlayer(final int stoneNumber, final char player) {
-        if(stoneNumber < 0 || 8 < stoneNumber) throw new RuntimeException("Invalid stone. Allowed are 0-8 but was " + stoneNumber);
-        if(grid[stoneNumber] != ' ') throw new RuntimeException("Stone already set");
+        if (stoneNumber < 0 || 8 < stoneNumber)
+            throw new RuntimeException("Invalid stone. Allowed are 0-8 but was " + stoneNumber);
+        if (grid[stoneNumber] != ' ') throw new RuntimeException("Stone already set");
         grid[stoneNumber] = player;
     }
 
@@ -83,6 +83,10 @@ public class Grid {
     }
 
     private int calculateStone(final int xPos, final int yPos) {
+        if (xPos < 1 || 3 < xPos || yPos < 1 || 3 < yPos) {
+            throw new RuntimeException("Illegal coordinates (" + xPos + "," + yPos + ")");
+        }
+
         return (yPos - 1) * 3 + (xPos - 1);
     }
 }

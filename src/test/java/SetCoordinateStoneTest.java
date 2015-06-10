@@ -6,8 +6,10 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * Class to test the stones via parameterized test.
@@ -55,6 +57,17 @@ public class SetCoordinateStoneTest {
         ticTacToe.setPlayerOne(xPos, yPos);
         final String currentGrid  = ticTacToe.getGrid();
         assertThat(currentGrid, is(expectedGridString));
+    }
+
+    @Test
+    public void setStoneWithIncorrectCoordinatesThrowException() {
+        try {
+            ticTacToe.setPlayerOne(4, 4);
+            ticTacToe.getGrid();
+            fail("Exception is expected for wrong coordinates");
+        } catch (RuntimeException e) {
+            assertThat(e.getMessage(), containsString("4,4"));
+        }
     }
 
 }
