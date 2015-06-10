@@ -1,4 +1,6 @@
-package com.sepoe.tictactoe.grid;
+package com.sepoe.tictactoe.grid.layout;
+
+import com.sepoe.tictactoe.grid.Grid;
 
 /**
  * Class to print the grid in one line.

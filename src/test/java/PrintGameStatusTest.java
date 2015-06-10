@@ -1,5 +1,5 @@
 import com.sepoe.tictactoe.game.TicTacToe;
-import com.sepoe.tictactoe.grid.FramedGridLayout;
+import com.sepoe.tictactoe.grid.layout.FramedGridLayout;
 import com.sepoe.tictactoe.grid.Grid;
 import org.junit.Before;
 import org.junit.Test;

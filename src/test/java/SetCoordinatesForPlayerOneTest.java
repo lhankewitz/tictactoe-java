@@ -1,6 +1,6 @@
 import com.sepoe.tictactoe.game.TicTacToe;
 import com.sepoe.tictactoe.grid.Grid;
-import com.sepoe.tictactoe.grid.OneLineGridLayout;
+import com.sepoe.tictactoe.grid.layout.OneLineGridLayout;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
