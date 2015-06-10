@@ -25,7 +25,8 @@ public class SetCoordinateStoneTest {
         return Arrays.asList(new Object[][]{
                 {1,1, "x        "},
                 {2,1, " x       "},
-                {3,1, "  x      "}
+                {3,1, "  x      "},
+                {1,2, "   x     "}
         });
     }
 
