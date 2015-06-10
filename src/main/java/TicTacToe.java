@@ -37,8 +37,8 @@ public class TicTacToe {
         lastPlayer = player;
     }
 
-    public String getGrid() {
-        return grid.getGrid();
+    public Grid getGrid() {
+        return grid;
     }
 
     public char getWinner() {

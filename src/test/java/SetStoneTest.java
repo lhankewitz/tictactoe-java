@@ -1,4 +1,4 @@
-import org.junit.Ignore;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -38,10 +38,16 @@ public class SetStoneTest {
 
     private final Grid grid = new Grid();
     private final TicTacToe ticTacToe = new TicTacToe(grid);
+    private OneLineGridLayout oneLineGridLayout;
+
+    @Before
+    public void setUp() {
+        oneLineGridLayout = new OneLineGridLayout();
+    }
 
     @Test
     public void getGrid_BeforeGame() {
-        final String currentGrid = ticTacToe.getGrid();
+        final String currentGrid = oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         System.out.println(currentGrid);
         assertThat(currentGrid, is("         "));
     }
@@ -49,8 +55,7 @@ public class SetStoneTest {
     @Test
     public void getGrid_forPlayOneSetFirstStone() {
         ticTacToe.setPlayerOne(0);
-        final String currentGrid  = ticTacToe.getGrid();
-        System.out.println(currentGrid);
+        final String currentGrid  =  oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         assertThat(currentGrid, is("x        "));
     }
 
@@ -59,7 +64,7 @@ public class SetStoneTest {
     public void getGrid_forPlayOneAndTwoSetFirstStone() {
         ticTacToe.setPlayerOne(0);
         ticTacToe.setPlayerTwo(3);
-        final String currentGrid  = ticTacToe.getGrid();
+        final String currentGrid  =  oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         System.out.println(currentGrid);
         assertThat(currentGrid, is("x  o     "));
     }
@@ -69,7 +74,7 @@ public class SetStoneTest {
         ticTacToe.setPlayerOne(0);
         ticTacToe.setPlayerTwo(3);
         ticTacToe.setPlayerOne(1);
-        final String currentGrid  = ticTacToe.getGrid();
+        final String currentGrid  =  oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xx o     "));
     }
@@ -80,7 +85,7 @@ public class SetStoneTest {
         ticTacToe.setPlayerTwo(3);
         ticTacToe.setPlayerOne(1);
         ticTacToe.setPlayerTwo(4);
-        final String currentGrid  = ticTacToe.getGrid();
+        final String currentGrid  =  oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xx oo    "));
     }
@@ -92,7 +97,7 @@ public class SetStoneTest {
         ticTacToe.setPlayerOne(1);
         ticTacToe.setPlayerTwo(4);
         ticTacToe.setPlayerOne(2);
-        final String currentGrid  = ticTacToe.getGrid();
+        final String currentGrid  =  oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         System.out.println(currentGrid);
         assertThat(currentGrid, is("xxxoo    "));
     }

@@ -21,6 +21,7 @@ import static org.junit.Assert.fail;
 public class SetCoordinatesForPlayerTwoTest {
     private Grid grid;
     private TicTacToe ticTacToe;
+    private OneLineGridLayout oneLineGridLayout;
 
     @Parameterized.Parameters(name = "{index}: setPlayerTwo({0},{1})")
     public static Collection<Object[]> data() {
@@ -49,13 +50,14 @@ public class SetCoordinatesForPlayerTwoTest {
     public void setUp() {
         grid = new Grid();
         ticTacToe = new TicTacToe(grid);
+        oneLineGridLayout = new OneLineGridLayout();
     }
 
     @Test
     public void setStoneForPlayerCorrectly() {
         ticTacToe.setPlayerOne(3, 3);
         ticTacToe.setPlayerTwo(row, column);
-        final String currentGrid  = ticTacToe.getGrid();
+        final String currentGrid  = oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         assertThat(currentGrid, is(expectedGridString));
     }
 
@@ -63,7 +65,7 @@ public class SetCoordinatesForPlayerTwoTest {
     public void set3_3_StoneForPlayerTwoCorrectly() {
         ticTacToe.setPlayerOne(1, 1);
         ticTacToe.setPlayerTwo(3, 3);
-        final String currentGrid  = ticTacToe.getGrid();
+        final String currentGrid  =oneLineGridLayout.formatGrid(ticTacToe.getGrid());
         assertThat(currentGrid, is("x       o"));
     }
 
@@ -72,7 +74,6 @@ public class SetCoordinatesForPlayerTwoTest {
         try {
             ticTacToe.setPlayerOne(1, 1);
             ticTacToe.setPlayerTwo(4, 4);
-            ticTacToe.getGrid();
             fail("Exception is expected for wrong coordinates");
         } catch (RuntimeException e) {
             assertThat(e.getMessage(), containsString("4,4"));
