@@ -23,10 +23,11 @@ public class SetCoordinateStoneTest {
     @Parameterized.Parameters(name = "{index}: setPlayerOne({0},{1})")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {1,1, "x        "},
-                {2,1, " x       "},
-                {3,1, "  x      "},
-                {1,2, "   x     "}
+                 {1,1, "x        "}
+                ,{2,1, " x       "}
+                ,{3,1, "  x      "}
+                ,{1,2, "   x     "}
+                //,{2,2, "    x    "}
         });
     }
 

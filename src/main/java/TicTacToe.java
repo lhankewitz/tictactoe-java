@@ -70,11 +70,12 @@ public class TicTacToe {
 
     public void setPlayerOne(final int xPos, final int yPos) {
 
-        int stone = -1;
+        final int stone;
         if(xPos == 1 && yPos == 1) stone = 0;
-        if(xPos == 2 && yPos == 1) stone = 1;
-        if(xPos == 3 && yPos == 1) stone = 2;
-        if(xPos == 1 && yPos == 2) stone = 3;
+        else if(xPos == 2 && yPos == 1) stone = 1; // ((yPos-1)*3) + (xPos -1)
+        else if(xPos == 3 && yPos == 1) stone = 2;
+        else if(xPos == 1 && yPos == 2) stone = 3;
+        else throw new RuntimeException("(" + xPos + "," + yPos + ") is unknown on the grid");
         grid.setPlayer(stone, getPlayerOne());
     }
 }
