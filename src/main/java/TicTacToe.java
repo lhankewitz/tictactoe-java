@@ -27,10 +27,14 @@ public class TicTacToe {
         setPlayerStone(getPlayerTwo(), stoneNumber);
     }
 
-    private void setPlayerStone(final char playerOne, final int stoneNumber) {
-        if(lastPlayer == playerOne) throw new RuntimeException("Next Players turn!");
-        lastPlayer = playerOne;
-        grid.setPlayer(stoneNumber, playerOne);
+    private void setPlayerStone(final char player, final int stoneNumber) {
+        checkTurn(player);
+        grid.setPlayer(stoneNumber, player);
+    }
+
+    private void checkTurn(final char player) {
+        if(lastPlayer == player) throw new RuntimeException("Next Players turn!");
+        lastPlayer = player;
     }
 
     public String getGrid() {
@@ -69,6 +73,15 @@ public class TicTacToe {
 
 
     public void setPlayerOne(final int xPos, final int yPos) {
-        grid.setPlayer(xPos, yPos, getPlayerOne());
+        setPlayerStone(xPos, yPos, getPlayerOne());
+    }
+
+    private void setPlayerStone(final int xPos, final int yPos, final char player) {
+        checkTurn(player);
+        grid.setPlayer(xPos, yPos, player);
+    }
+
+    public void setPlayerTwo(final int xPos, final int yPos) {
+        setPlayerStone(xPos, yPos, getPlayerTwo());
     }
 }

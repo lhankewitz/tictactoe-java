@@ -1,0 +1,74 @@
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+
+/**
+ * Class to test the stones via parameterized test.
+ *
+ * @author lumiha
+ * @since 10/06/15.
+ */
+@RunWith(Parameterized.class)
+public class SetCoordinatesForPlayerOneTest {
+    private Grid grid;
+    private TicTacToe ticTacToe;
+
+    @Parameterized.Parameters(name = "{index}: setPlayerOne({0},{1})")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                 {1,1, "x        "}
+                ,{2,1, " x       "}
+                ,{3,1, "  x      "}
+                ,{1,2, "   x     "}
+                ,{2,2, "    x    "}
+                ,{3,2, "     x   "}
+                ,{1,3, "      x  "}
+                ,{2,3, "       x "}
+                ,{3,3, "        x"}
+        });
+    }
+
+    @Parameterized.Parameter // first data value (0) is default
+    public int xPos = 2;
+
+    @Parameterized.Parameter(value = 1) // first data value (0) is default
+    public int yPos = 1;
+
+    @Parameterized.Parameter(value = 2)
+    public String expectedGridString = " x       ";
+
+    @Before
+    public void setUp() {
+        grid = new Grid();
+        ticTacToe = new TicTacToe(grid);
+    }
+
+    @Test
+    public void setStoneForPlayerOneCorrectly() {
+        ticTacToe.setPlayerOne(xPos, yPos);
+        final String currentGrid  = ticTacToe.getGrid();
+        assertThat(currentGrid, is(expectedGridString));
+    }
+
+
+    @Test
+    public void setStoneWithIncorrectCoordinatesThrowException() {
+        try {
+            ticTacToe.setPlayerOne(4, 4);
+            ticTacToe.getGrid();
+            fail("Exception is expected for wrong coordinates");
+        } catch (RuntimeException e) {
+            assertThat(e.getMessage(), containsString("4,4"));
+        }
+    }
+
+}

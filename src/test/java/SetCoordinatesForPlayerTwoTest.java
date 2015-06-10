@@ -18,22 +18,21 @@ import static org.junit.Assert.fail;
  * @since 10/06/15.
  */
 @RunWith(Parameterized.class)
-public class SetCoordinateStoneTest {
+public class SetCoordinatesForPlayerTwoTest {
     private Grid grid;
     private TicTacToe ticTacToe;
 
-    @Parameterized.Parameters(name = "{index}: setPlayerOne({0},{1})")
+    @Parameterized.Parameters(name = "{index}: setPlayerTwo({0},{1})")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                 {1,1, "x        "}
-                ,{2,1, " x       "}
-                ,{3,1, "  x      "}
-                ,{1,2, "   x     "}
-                ,{2,2, "    x    "}
-                ,{3,2, "     x   "}
-                ,{1,3, "      x  "}
-                ,{2,3, "       x "}
-                ,{3,3, "        x"}
+                 {1,1, "o       x"}
+                ,{2,1, " o      x"}
+                ,{3,1, "  o     x"}
+                ,{1,2, "   o    x"}
+                ,{2,2, "    o   x"}
+                ,{3,2, "     o  x"}
+                ,{1,3, "      o x"}
+                ,{2,3, "       ox"}
         });
     }
 
@@ -53,16 +52,26 @@ public class SetCoordinateStoneTest {
     }
 
     @Test
-    public void setStoneCorrectly() {
-        ticTacToe.setPlayerOne(xPos, yPos);
+    public void setStoneForPlayerCorrectly() {
+        ticTacToe.setPlayerOne(3,3);
+        ticTacToe.setPlayerTwo(xPos, yPos);
         final String currentGrid  = ticTacToe.getGrid();
         assertThat(currentGrid, is(expectedGridString));
     }
 
     @Test
+    public void set3_3_StoneForPlayerTwoCorrectly() {
+        ticTacToe.setPlayerOne(1,1);
+        ticTacToe.setPlayerTwo(3, 3);
+        final String currentGrid  = ticTacToe.getGrid();
+        assertThat(currentGrid, is("x       o"));
+    }
+
+    @Test
     public void setStoneWithIncorrectCoordinatesThrowException() {
         try {
-            ticTacToe.setPlayerOne(4, 4);
+            ticTacToe.setPlayerOne(1,1);
+            ticTacToe.setPlayerTwo(4, 4);
             ticTacToe.getGrid();
             fail("Exception is expected for wrong coordinates");
         } catch (RuntimeException e) {
