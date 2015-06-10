@@ -26,22 +26,22 @@ public class SetCoordinatesForPlayerOneTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                  {1,1, "x        "}
-                ,{2,1, " x       "}
-                ,{3,1, "  x      "}
-                ,{1,2, "   x     "}
+                ,{1,2, " x       "}
+                ,{1,3, "  x      "}
+                ,{2,1, "   x     "}
                 ,{2,2, "    x    "}
-                ,{3,2, "     x   "}
-                ,{1,3, "      x  "}
-                ,{2,3, "       x "}
+                ,{2,3, "     x   "}
+                ,{3,1, "      x  "}
+                ,{3,2, "       x "}
                 ,{3,3, "        x"}
         });
     }
 
-    @Parameterized.Parameter // first data value (0) is default
-    public int xPos = 2;
+    @Parameterized.Parameter
+    public int row = 1;
 
-    @Parameterized.Parameter(value = 1) // first data value (0) is default
-    public int yPos = 1;
+    @Parameterized.Parameter(value = 1)
+    public int column = 2;
 
     @Parameterized.Parameter(value = 2)
     public String expectedGridString = " x       ";
@@ -54,7 +54,7 @@ public class SetCoordinatesForPlayerOneTest {
 
     @Test
     public void setStoneForPlayerOneCorrectly() {
-        ticTacToe.setPlayerOne(xPos, yPos);
+        ticTacToe.setPlayerOne(row, column);
         final String currentGrid  = ticTacToe.getGrid();
         assertThat(currentGrid, is(expectedGridString));
     }

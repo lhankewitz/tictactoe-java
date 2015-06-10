@@ -72,16 +72,16 @@ public class TicTacToe {
     }
 
 
-    public void setPlayerOne(final int xPos, final int yPos) {
-        setPlayerStone(xPos, yPos, getPlayerOne());
+    public void setPlayerOne(final int row, final int column) {
+        setPlayerStone(row, column, getPlayerOne());
     }
 
-    private void setPlayerStone(final int xPos, final int yPos, final char player) {
+    private void setPlayerStone(final int row, final int column, final char player) {
         checkTurn(player);
-        grid.setPlayer(xPos, yPos, player);
+        grid.setPlayer(row, column, player);
     }
 
-    public void setPlayerTwo(final int xPos, final int yPos) {
-        setPlayerStone(xPos, yPos, getPlayerTwo());
+    public void setPlayerTwo(final int row, final int column) {
+        setPlayerStone(row, column, getPlayerTwo());
     }
 }

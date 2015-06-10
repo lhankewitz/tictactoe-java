@@ -78,15 +78,15 @@ public class Grid {
         grid = "         ".toCharArray();
     }
 
-    public void setPlayer(final int xPos, final int yPos, final char player) {
-        setPlayer(calculateStone(xPos, yPos), player);
+    public void setPlayer(final int row, final int column, final char player) {
+        setPlayer(calculateStone(row, column), player);
     }
 
-    private int calculateStone(final int xPos, final int yPos) {
-        if (xPos < 1 || 3 < xPos || yPos < 1 || 3 < yPos) {
-            throw new RuntimeException("Illegal coordinates (" + xPos + "," + yPos + ")");
+    private int calculateStone(final int row, final int column) {
+        if (column < 1 || 3 < column || row < 1 || 3 < row) {
+            throw new RuntimeException("Illegal coordinates (" + column + "," + row + ")");
         }
 
-        return (yPos - 1) * 3 + (xPos - 1);
+        return (row - 1) * 3 + (column - 1);
     }
 }
