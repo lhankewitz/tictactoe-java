@@ -1,6 +1,14 @@
 /**
  * Class representing the grid.
  *
+ * The grid consists of 9 stones numbered from 0 to 8 in the following positions.
+ * |-----|
+ * |0|1|2|
+ * |-----|
+ * |3|4|5|
+ * |-----|
+ * |6|7|8|
+ * |-----|
  * */
 public class Grid {
     private static final char REG_EXP_PLAYER_CODE = 'p';

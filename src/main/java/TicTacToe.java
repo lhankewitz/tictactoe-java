@@ -52,4 +52,9 @@ public class TicTacToe {
     public void reset() {
         grid.reset();
     }
+
+    public void setPlayerOne(final int xPos, final int yPos) {
+        int stone = (xPos == 0 && yPos == 0)?0:-1;
+        grid.setPlayer(stone, PLAYER_ONE);
+    }
 }
