@@ -77,4 +77,12 @@ public class Grid {
     public void reset() {
         grid = "         ".toCharArray();
     }
+
+    public void setPlayer(final int xPos, final int yPos, final char player) {
+        setPlayer(calculateStone(xPos, yPos), player);
+    }
+
+    private int calculateStone(final int xPos, final int yPos) {
+        return (yPos - 1) * 3 + (xPos - 1);
+    }
 }

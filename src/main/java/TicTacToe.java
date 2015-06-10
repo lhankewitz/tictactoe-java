@@ -69,8 +69,6 @@ public class TicTacToe {
 
 
     public void setPlayerOne(final int xPos, final int yPos) {
-
-        final int stone = (yPos - 1) * 3 + (xPos - 1);
-        grid.setPlayer(stone, getPlayerOne());
+        grid.setPlayer(xPos, yPos, getPlayerOne());
     }
 }
