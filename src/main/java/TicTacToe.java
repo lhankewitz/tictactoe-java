@@ -69,7 +69,10 @@ public class TicTacToe {
 
 
     public void setPlayerOne(final int xPos, final int yPos) {
-        int stone = (xPos == 1 && yPos == 1)?0:-1;
+
+        int stone = -1;
+        if(xPos == 1 && yPos == 1) stone = 0;
+        if(xPos == 2 && yPos == 1) stone = 1;
         grid.setPlayer(stone, getPlayerOne());
     }
 }

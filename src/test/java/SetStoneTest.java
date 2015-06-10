@@ -66,12 +66,11 @@ public class SetStoneTest {
     }
 
     @Test
-    @Ignore
     public void getGrid_forPlayOneSetFirstStone1WithCoordinates() {
-        ticTacToe.setPlayerOne(1,2);
+        ticTacToe.setPlayerOne(2,1);
         final String currentGrid  = ticTacToe.getGrid();
         System.out.println(currentGrid);
-        assertThat(currentGrid, is("x        "));
+        assertThat(currentGrid, is(" x       "));
     }
 
 
